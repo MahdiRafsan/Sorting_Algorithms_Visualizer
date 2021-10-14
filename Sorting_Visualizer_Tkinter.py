@@ -19,10 +19,11 @@ class SortingVisualizer():
         self.window.minsize(800, 450)
         self.window.maxsize(800, 450)
         self.window.config(bg = "#152e57")
-         
-        self.frame = tk.Frame(window, width = 770, height = 100, bg = "#bbace8")
+    
+    def draw_ui(self): 
+        self.frame = tk.Frame(self.window, width = 770, height = 100, bg = "#bbace8")
         self.frame.grid(row = 0, column = 0, padx = 15, pady = 15)
-        self.canvas = tk.Canvas(window, width = 770, height = 300, highlightthickness=0, bg = "white")
+        self.canvas = tk.Canvas(self.window, width = 770, height = 300, highlightthickness=0, bg = "white")
         self.canvas.grid(row=1, column=0, padx = 15, pady = 15)
         
         self.label = tk.Label(self.frame, text = "Algorithms: ", width = 25)
@@ -113,7 +114,7 @@ class SortingVisualizer():
         
 def main():
     root = tk.Tk()
-    SortingVisualizer(root)
+    SortingVisualizer(root).draw_ui()
     root.mainloop()
 
 if __name__ == "__main__":
