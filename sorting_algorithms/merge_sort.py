@@ -1,6 +1,15 @@
 import time
 
 def merge_sort(data, left, right, draw, speed):
+    """
+    algorithm to visualize merge sort
+    :param data: list of integers to sort
+    :param left: starting index of the array of integers
+    :param right: ending index of the array of integers
+    :param draw: funciton to draw the integers on the canvas
+    :param speed: speed at which the algorithm is run
+    :return: None
+    """
     if left < right:
 
         mid = (left+right) // 2
@@ -12,8 +21,14 @@ def merge_sort(data, left, right, draw, speed):
                     else "Yellow" if x > mid and x <= right else "#a871e3" for x in range(len(data))]) 
         time.sleep(speed) 
     
-def merge(data, left, mid, right):        
-    
+def merge(data, left, mid, right):
+    """
+    function to merge the sorted arrays
+    :param left: starting index of the list of numbers
+    :param mid: middle index to divide the array into left and right halves
+    :param right: last index of the list numbers
+    :return: None
+    """        
     left_half = data[left : mid + 1]
     right_half = data[mid + 1 : right + 1]  
     

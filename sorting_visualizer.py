@@ -10,9 +10,15 @@ from sorting_algorithms.heap_sort import Heap_Sort
 from sorting_algorithms.insertion_sort import insertion_sort
 
 class SortingVisualizer():
-    
+    """
+    used to create and run the gui for sorting visualization
+    """
     alg_list = ["Bubble Sort", "Merge Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Heap Sort"]
     def __init__(self, window):
+        """
+        used to initialize a gui window of constant width and height
+        :param window: window
+        """
         self.window = window
         self.window.title("Sorting Algorithm Visualizer")
         self.window.geometry("800x450")
@@ -21,6 +27,9 @@ class SortingVisualizer():
         self.window.config(bg = "#152e57")
     
     def draw_ui(self): 
+        """
+        draws the ui for the program 
+        """
         self.frame = tk.Frame(self.window, width = 770, height = 100, bg = "#bbace8")
         self.frame.grid(row = 0, column = 0, padx = 15, pady = 15)
         self.canvas = tk.Canvas(self.window, width = 770, height = 300, highlightthickness=0, bg = "white")
@@ -63,6 +72,9 @@ class SortingVisualizer():
         self.sort_btn.grid(row = 1, column = 4, columnspan = 2, padx = 5, pady = 5)
         
     def generate_list(self):
+        """
+        generates a list of 100 random integers
+        """
         try:
             self.min_val = int(self.min_entry.get())    
         except ValueError:
@@ -79,6 +91,12 @@ class SortingVisualizer():
         self.draw(self.data, ["#a871e3" for x in range(len(self.data))])
         
     def draw(self, data, color):
+        """
+        draws normalized bars on the canvas
+        :param data: list containing the 100 randomly generated integers
+        :param color: hex color to color the data bars
+        :return: None
+        """
         self.canvas.delete("all")
         self.c_width = 770
         self.c_height = 300
@@ -98,6 +116,9 @@ class SortingVisualizer():
         self.window.update_idletasks()
     
     def sort(self):
+        """
+        visulaizes the selected sorting algorithm
+        """
         if self.alg_dropdown.get() == "Bubble Sort":
             bubble_sort(self.data, self.draw, self.sim_speed.get())
         elif self.alg_dropdown.get() == "Merge Sort":
@@ -113,10 +134,12 @@ class SortingVisualizer():
         self.draw(self.data, ["#03f0fc" for x in range(len(self.data))])
         
 def main():
+    """
+    used to run the gui
+    """
     root = tk.Tk()
     SortingVisualizer(root).draw_ui()
     root.mainloop()
-
 if __name__ == "__main__":
     main()
 

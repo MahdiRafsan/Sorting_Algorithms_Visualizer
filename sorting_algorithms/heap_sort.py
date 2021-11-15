@@ -1,11 +1,26 @@
 import time
 
 class Heap_Sort():
+    """
+    sorts an array of integers using heap sort algorithm
+    """
     def __init__(self, data, draw, speed):
+        """
+        initializes heap sort algorithm
+        :param data: list of integers to sort
+        :draw: function to draw the integers on the canvas
+        :speed: speed at which the algorithm is run
+        """
         self.heap_sort(data, draw, speed)
     
     def heapify(self, data, n, i):
-        
+        """
+        builds a max heap to perform heap sort
+        :param data: list of integers to sort
+        :param n: size of heap
+        :param i: root of the heap
+        :return: None
+        """
         # initialize largest as root
         self.largest = i
         left, right = (2 * i + 1), (2 * i + 2)
@@ -24,6 +39,13 @@ class Heap_Sort():
             self.heapify(data, n, self.largest)
     
     def heap_sort(self, data, draw, speed):
+        """
+        performs heap sort by building a max heap
+        :param data: list of integers to sort
+        :draw: function to draw the integers on the canvas
+        :speed: speed at which the algorithm is run
+        :return: None
+        """
         
         # building max-heap
         # first index of a non-leaf node → len(data)//2 - 1 

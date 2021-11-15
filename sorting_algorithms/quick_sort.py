@@ -1,6 +1,15 @@
 import time
 
 def quick_sort(data, left, right, draw, speed):
+    """
+    algorithm to visualize quick sort
+    :param data: list of integers to sort
+    :param left: starting index of the list
+    :param right: last index of the list
+    :param draw: funciton to draw the integers on the canvas
+    :param speed: speed at which the algorithm is run
+    :return: None
+    """
     if left < right:
         pos = partition(data, left, right)
         quick_sort(data, left, pos - 1, draw, speed)
@@ -10,7 +19,14 @@ def quick_sort(data, left, right, draw, speed):
         time.sleep(speed)
         
 def partition(data, left, right):
-    i, j = left, right-1 
+    """
+    function to handle sorting by partitioning the list of integers based on a pivot 
+    :param data: list of integers to sort
+    :param left: starting index of the arry
+    :param right: ending index of the array
+    :return: partition index to divide the array
+    """
+    i, j = left, right - 1 
     pivot = data[right]
     
     while i < j:
